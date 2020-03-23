@@ -14,11 +14,21 @@
 1. [Pytorch](http://pytorch.org/)
 
 ## Installation
+
 - git submodule init && git submodule update
 - 直接下载，但是先要在本地的电脑安装swig，并且将swig的路径配送至环境变量的Path中
 
+## Previous
+
+- 运行需要pose_model.pth文件，链接在前面，需要翻墙，包含文件运行的参数，由于包太大无法上传
+  - [链接](https://www.dropbox.com/s/ae071mfm2qoyc8v/pose_model.pth?dl=0)
+- 在运行之前，需要在cmd进入到项目**lib/pafprocess**所在文件夹下，并且在cmd编译以下命令,可能直接最后一句就可以了
+  - **python setup.py build**
+  - **python setup.py install**
+  - **swig -python -c++ pafprocess.i && python3 setup.py build_ext --inplace**
+
 ## Demo
-- Download [converted pytorch model](https://www.dropbox.com/s/ae071mfm2qoyc8v/pose_model.pth?dl=0).
+- Download [converted pytorch model](https://www.dropbox.com/s/ae071mfm2qoyc8v/pose_model.pth?dl=0)
 - Compile the C++ postprocessing: `cd lib/pafprocess; sh make.sh` 
 - `python demo/picture_demo.py` to run the picture demo.
 - `python demo/web_demo.py` to run the web demo.
