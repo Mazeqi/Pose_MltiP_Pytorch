@@ -1,10 +1,11 @@
 ## Introduction
-Multi Person PoseEstimation By PyTorch
+- Multi Person PoseEstimation By PyTorch
+- 多人姿势检测
 
 ## Results
 
 <p align="left">
-<img src="https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation/blob/master/readme/result.gif", width="720">
+<img src="./readme/result.gif", width="720">
 </p>
 
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT) 
@@ -13,7 +14,8 @@ Multi Person PoseEstimation By PyTorch
 1. [Pytorch](http://pytorch.org/)
 
 ## Installation
-1. git submodule init && git submodule update
+- git submodule init && git submodule update
+- 直接下载，但是先要在本地的电脑安装swig，并且将swig的路径配送至环境变量的Path中
 
 ## Demo
 - Download [converted pytorch model](https://www.dropbox.com/s/ae071mfm2qoyc8v/pose_model.pth?dl=0).
@@ -27,7 +29,7 @@ Multi Person PoseEstimation By PyTorch
 c
 ### Main Results
 
-| model name| mAP |  Inference Time | 
+| model name| mAP |  Inference Time |
 | :---------: | :---------: |:---------: |
 |[original rtpose]   | 0.653 |-|
 
@@ -74,10 +76,10 @@ ${DATA_ROOT}
 
 ### Network Architecture
 - testing architecture
-![Teaser?](https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation/blob/master/readme/pose.png)
+![Teaser?](./readme/pose.png)
 
 - training architecture
-![Teaser?](https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation/blob/master/readme/training_structure.png)
+![Teaser?](./readme/training_structure.png)
 
 ## Contributions
 
