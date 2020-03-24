@@ -21,7 +21,7 @@ from lib.utils.paf_to_pose import paf_to_pose_cpp
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--cfg', help='experiment configure file name',
-                    default='./experiments/vgg19_368x368_sgd.yaml', type=str)
+                    default='../experiments/vgg19_368x368_sgd.yaml', type=str)
 parser.add_argument('--weight', type=str,
                     default='../ckpts/openpose.pth')
 parser.add_argument('opts',
