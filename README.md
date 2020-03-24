@@ -1,6 +1,6 @@
 ## Introduction
 - Multi Person PoseEstimation By PyTorch
-- 多人姿势检测
+- 多人姿势检测（对开源姿势检测代码进行修改，适合运行在win，用于学习论文）
 
 ## Results
 
