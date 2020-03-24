@@ -13,8 +13,8 @@ _C.OUTPUT_DIR = ''
 _C.LOG_DIR = ''
 _C.EXPERIMENT_NAME = ''
 _C.DATA_DIR = ''
-_C.GPUS = [0]
-_C.WORKERS = 0
+_C.GPUS = [0,1,2,3]
+_C.WORKERS = 4
 _C.PRINT_FREQ = 20
 _C.PIN_MEMORY = True
 _C.RANK = 0
@@ -98,14 +98,14 @@ _C.TRAIN.STRIDE_APPLY = 1
 _C.TRAIN.RESUME = False
 _C.TRAIN.CHECKPOINT = ''
 
-_C.TRAIN.BATCH_SIZE_PER_GPU = 2
+_C.TRAIN.BATCH_SIZE_PER_GPU = 32
 _C.TRAIN.SHUFFLE = True
 
 # testing
 _C.TEST = CN()
 
 # size of images for each device
-_C.TEST.BATCH_SIZE_PER_GPU = 2
+_C.TEST.BATCH_SIZE_PER_GPU = 32
 # Test Model Epoch
 _C.TEST.FLIP_TEST = False
 _C.TEST.POST_PROCESS = False
@@ -170,6 +170,6 @@ def update_config(cfg, args):
 
 if __name__ == '__main__':
     import sys
-    with open("config.yaml", 'w') as f:
+    with open(sys.argv[1], 'w') as f:
         print(_C, file=f)
 
