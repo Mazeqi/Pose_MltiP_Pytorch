@@ -12,7 +12,7 @@ from lib.network.rtpose_vgg import get_model, use_vgg
 from lib.datasets import coco, transforms, datasets
 from lib.config import update_config
 
-DATA_DIR = '/data/coco'
+DATA_DIR = '../data/coco'
 
 ANNOTATIONS_TRAIN = [os.path.join(DATA_DIR, 'annotations', item) for item in ['person_keypoints_train2017.json']]
 ANNOTATIONS_VAL = os.path.join(DATA_DIR, 'annotations', 'person_keypoints_val2017.json')
@@ -26,15 +26,15 @@ def train_cli(parser):
     group.add_argument('--train-image-dir', default=IMAGE_DIR_TRAIN)
     group.add_argument('--val-annotations', default=ANNOTATIONS_VAL)
     group.add_argument('--val-image-dir', default=IMAGE_DIR_VAL)
-    group.add_argument('--pre-n-images', default=8000, type=int,
+    group.add_argument('--pre-n-images', default=5, type=int,
                        help='number of images to sampe for pretraining')
     group.add_argument('--n-images', default=None, type=int,
                        help='number of images to sample')
     group.add_argument('--duplicate-data', default=None, type=int,
                        help='duplicate data')
-    group.add_argument('--loader-workers', default=8, type=int,
+    group.add_argument('--loader-workers', default=0, type=int,
                        help='number of workers for data loading')
-    group.add_argument('--batch-size', default=72, type=int,
+    group.add_argument('--batch-size', default=1, type=int,
                        help='batch size')
     group.add_argument('--lr', '--learning-rate', default=1., type=float,
                     metavar='LR', help='initial learning rate')
@@ -43,7 +43,7 @@ def train_cli(parser):
     group.add_argument('--weight-decay', '--wd', default=0.000, type=float,
                     metavar='W', help='weight decay (default: 1e-4)') 
     group.add_argument('--nesterov', dest='nesterov', default=True, type=bool)     
-    group.add_argument('--print_freq', default=20, type=int, metavar='N',
+    group.add_argument('--print_freq', default=1, type=int, metavar='N',
                     help='number of iterations to print the training statistics')    
                    
                                          
@@ -87,7 +87,7 @@ def cli():
                         help='output file')
     parser.add_argument('--stride-apply', default=1, type=int,
                         help='apply and reset gradients every n batches')
-    parser.add_argument('--epochs', default=75, type=int,
+    parser.add_argument('--epochs', default=1, type=int,
                         help='number of epochs to train')
     parser.add_argument('--freeze-base', default=0, type=int,
                         help='number of epochs to train with frozen base')
@@ -104,7 +104,7 @@ def cli():
                         help='enable debug but dont plot')
     parser.add_argument('--disable-cuda', action='store_true',
                         help='disable CUDA')                        
-    parser.add_argument('--model_path', default='./network/weight/', type=str, metavar='DIR',
+    parser.add_argument('--model_path', default='../lib/network/weight/', type=str, metavar='DIR',
                     help='path to where the model saved')                         
     args = parser.parse_args()
 
@@ -334,7 +334,7 @@ lr_scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.8, patience=5, 
 best_val_loss = np.inf
 
 
-model_save_filename = './network/weight/best_pose.pth'
+model_save_filename = '../lib/network/weight/best_pose.pth'
 for epoch in range(5, args.epochs):
 
     # train for one epoch
