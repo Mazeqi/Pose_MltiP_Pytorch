@@ -170,6 +170,6 @@ def update_config(cfg, args):
 
 if __name__ == '__main__':
     import sys
-    with open(sys.argv[1], 'w') as f:
+    with open("config.yaml", 'w') as f:
         print(_C, file=f)
 
