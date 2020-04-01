@@ -87,9 +87,9 @@ def cli():
                         help='output file')
     parser.add_argument('--stride-apply', default=1, type=int,
                         help='apply and reset gradients every n batches')
-    parser.add_argument('--epochs', default=1, type=int,
+    parser.add_argument('--epochs', default=20, type=int,
                         help='number of epochs to train')
-    parser.add_argument('--freeze-base', default=0, type=int,
+    parser.add_argument('--freeze-base', default=20, type=int,
                         help='number of epochs to train with frozen base')
     parser.add_argument('--pre-lr', type=float, default=1e-4,
                         help='pre learning rate')
